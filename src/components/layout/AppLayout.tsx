@@ -14,7 +14,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
         <Sidebar />
         <div className="flex flex-col flex-1">
             <header className="flex items-center justify-between px4 py-2 border-b">
-                <div className="text-lg font-bold">JurNull Test</div>
+                <div className="text-lg font-bold">JurNull</div>
                 <div className="flex items-center gap-4">
                     <UserNav />
                     <ThemeToggle />

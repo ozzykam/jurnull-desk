@@ -1,25 +1,22 @@
 'use client'
 
-import { db } from '@/lib/firebase'
-import { collection, getDocs } from 'firebase/firestore'
-import { useEffect } from 'react'
+// import { toast } from 'sonner'
+// import { Button } from '@/components/ui/button'
+import ProtectedRoute from '@/components/auth/ProtectedRoute'
 
 export default function Home() {
-  useEffect(() => {
-    async function testFirestore() {
-      try {
-        const querySnapshot = await getDocs(collection(db, 'test'))
-        querySnapshot.forEach((doc) => {
-          console.log(`${doc.id} => ${JSON.stringify(doc.data())}`)
-        })
-      } catch (err) {
-        console.error('Firestore error:', err)
-      }
-    }
-    testFirestore()
-  }, [])
-
   return (
-    <div className="p-8 text-xl">JurNull Firebase is wired up 🚀</div>
+    <ProtectedRoute>
+      <div className="p-8 space-y-4">
+        <h1 className="text-2xl font-bold">Welcome to JurNull 👋</h1>
+        <p className="text-lg text-muted-foreground">
+          We&apos;re working on something special for you! Stay tuned for updates!
+        </p>
+
+        {/* <Button onClick={() => toast.success('JurNull is alive 🚀')}>
+          Test Toast
+        </Button> */}
+      </div>
+    </ProtectedRoute>
   )
 }

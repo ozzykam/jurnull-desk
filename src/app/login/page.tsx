@@ -7,6 +7,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { toast } from 'sonner'
+import Link from 'next/link'
 
 export default function LoginPage() {
     const [email, setEmail] = useState('')
@@ -46,6 +47,17 @@ export default function LoginPage() {
                 <Button type="submit" className="w-full">
                     Login
                 </Button>
+                <div className="text-center space-y-2">
+                    <Link href="/forgot-password" className="text-sm text-blue-600 hover:text-blue-800">
+                        Forgot your password?
+                    </Link>
+                    <div className="text-sm text-gray-600">
+                        Don&apos;t have an account?{' '}
+                        <Link href="/signup" className="text-blue-600 hover:text-blue-800">
+                            Sign up
+                        </Link>
+                    </div>
+                </div>
             </form>
         </div>
     )
